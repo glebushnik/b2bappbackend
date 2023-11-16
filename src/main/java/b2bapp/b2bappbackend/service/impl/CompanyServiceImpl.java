@@ -2,10 +2,10 @@ package b2bapp.b2bappbackend.service.impl;
 
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
+import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.repository.CompanyRepo;
 import b2bapp.b2bappbackend.repository.UserRepo;
 import b2bapp.b2bappbackend.service.CompanyService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,12 +24,15 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public CompanyEntity createCompany(CompanyEntity company, Long userId) {
+    public CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException {
+        if(companyRepo.findByCompanyName(company.getCompanyName())!=null){
+            throw new CompanyAlreadyExistsException("Компания с таким названием уже существует.");
+        }
         companyRepo.save(company);
         UserEntity user = new UserEntity();
         user = userRepo.findById(userId).orElse(null);
-        user.getCompanies().add(company);
 
+        user.getCompanies().add(company);
         company.getUsers().add(user);
 
         return companyRepo.save(company);

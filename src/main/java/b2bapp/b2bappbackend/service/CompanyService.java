@@ -2,12 +2,13 @@ package b2bapp.b2bappbackend.service;
 
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
+import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
 
 import java.util.List;
 import java.util.Set;
 
 public interface CompanyService {
-    CompanyEntity createCompany(CompanyEntity company, Long userId);
+    CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException;
     List<CompanyEntity> getAllCompanies();
     Set<UserEntity> getCompanyUsers(Long companyId);
     Set<UserEntity> addCompanyUser(Long userId, Long companyId);

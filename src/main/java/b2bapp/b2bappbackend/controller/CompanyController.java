@@ -2,6 +2,7 @@ package b2bapp.b2bappbackend.controller;
 
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
+import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,9 @@ public class CompanyController {
     public ResponseEntity createCompany(@RequestBody CompanyEntity company, @RequestParam Long userId){
         try {
             return ResponseEntity.ok().body(companyService.createCompany(company, userId));
-        } catch (Exception e){
+        }catch (CompanyAlreadyExistsException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
