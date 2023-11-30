@@ -3,10 +3,13 @@ package b2bapp.b2bappbackend.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Validated
 @Entity
 @JsonIgnoreProperties
 @Table(name = "companies")
@@ -114,4 +117,5 @@ public class CompanyEntity {
     public Boolean getActive() {
         return isActive;
     }
+
 }

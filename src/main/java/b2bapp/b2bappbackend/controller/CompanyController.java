@@ -1,5 +1,6 @@
 package b2bapp.b2bappbackend.controller;
 
+import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
 import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
@@ -12,7 +13,7 @@ import java.util.List;
 import java.util.Set;
 
 @RestController
-@RequestMapping("/companies")
+@RequestMapping("/api/companies")
 public class CompanyController {
     private final CompanyService companyService;
 
@@ -35,7 +36,7 @@ public class CompanyController {
     @GetMapping("/all")
     public ResponseEntity getAllCompanies(){
         try {
-            List<CompanyEntity> companies = companyService.getAllCompanies();
+            List<CompanyDTO> companies = companyService.getAllCompanies();
             return ResponseEntity.ok().body(companies);
         } catch(Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

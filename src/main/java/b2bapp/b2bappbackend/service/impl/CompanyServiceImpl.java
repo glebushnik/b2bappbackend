@@ -1,5 +1,7 @@
 package b2bapp.b2bappbackend.service.impl;
 
+import b2bapp.b2bappbackend.DTO.CompanyDTO;
+import b2bapp.b2bappbackend.DTO.CompanyDTOMapper;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
 import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
@@ -11,16 +13,21 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepo companyRepo;
     private final UserRepo userRepo;
+    private final CompanyDTOMapper companyDTOMapper;
 
     @Autowired
-    public CompanyServiceImpl(CompanyRepo companyRepo, UserRepo userRepo) {
+    public CompanyServiceImpl(CompanyRepo companyRepo,
+                              UserRepo userRepo,
+                              CompanyDTOMapper companyDTOMapper) {
         this.companyRepo = companyRepo;
         this.userRepo = userRepo;
+        this.companyDTOMapper = companyDTOMapper;
     }
 
     @Override
@@ -39,8 +46,8 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public List<CompanyEntity> getAllCompanies() {
-        return companyRepo.findAll();
+    public List<CompanyDTO> getAllCompanies() {
+        return companyRepo.findAll().stream().map(companyDTOMapper).collect(Collectors.toList());
     }
 
     @Override
