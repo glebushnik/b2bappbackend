@@ -31,13 +31,20 @@ public class CompanyEntity {
     @Column(name = "isactive")
     private Boolean isActive = false;
 
-    @ManyToMany(mappedBy = "companies")
+
+    @ManyToMany(mappedBy = "companies", fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JsonIgnore
     private Set<UserEntity> users = new HashSet<>();
 
     public CompanyEntity() {
     }
 
+    @PreRemove
+    public void removeUserAssociations() {
+        for(UserEntity user : this.users) {
+            user.getCompanies().remove(this);
+        }
+    }
     public Long getId() {
         return id;
     }

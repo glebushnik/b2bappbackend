@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import org.apache.catalina.User;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -26,12 +28,13 @@ public class UserEntity {
     private Boolean is_staff;
     private Boolean is_active;
 
+    @OnDelete(action = OnDeleteAction.CASCADE)
     @ManyToMany(cascade = {
             CascadeType.DETACH,
             CascadeType.REFRESH,
             CascadeType.PERSIST,
             CascadeType.MERGE
-    })
+    }, fetch = FetchType.LAZY)
     @JoinTable(name = "user_company_mapping",
           joinColumns = @JoinColumn(name = "user_id"),
           inverseJoinColumns = @JoinColumn(name = "company_id")
@@ -41,7 +44,10 @@ public class UserEntity {
 
     public UserEntity() {
     }
-
+    public void removeCompany(CompanyEntity company) {
+        this.companies.remove(company);
+        company.getUsers().remove(this);
+    }
     public Long getId() {
         return id;
     }

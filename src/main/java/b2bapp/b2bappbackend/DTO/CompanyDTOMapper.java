@@ -18,7 +18,8 @@ public class CompanyDTOMapper implements Function<CompanyEntity, CompanyDTO> {
                 company.getCompanyTag(),
                 company.getAddress(),
                 company.getEmail(),
-                company.getExperience()
+                company.getExperience(),
+                company.getUsers()
         );
     }
 }

@@ -4,10 +4,12 @@ import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.DTO.CompanyDTOMapper;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
-import b2bapp.b2bappbackend.exception.CompanyAlreadyExistsException;
+import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
+import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
 import b2bapp.b2bappbackend.repository.CompanyRepo;
 import b2bapp.b2bappbackend.repository.UserRepo;
 import b2bapp.b2bappbackend.service.CompanyService;
+import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -51,19 +53,33 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     @Override
-    public Set<UserEntity> getCompanyUsers(Long companyId){
+    public Set<UserEntity> getCompanyUsers(Long companyId) throws CompanyNotFoundByIdException {
         CompanyEntity company = companyRepo.findById(companyId).orElse(null);
+        if(company == null) {
+            throw new CompanyNotFoundByIdException("Компании с таким Id не существует.");
+        }
         return company.getUsers();
     }
 
     @Override
-    public CompanyEntity updateCompany(CompanyEntity company, Long companyId) {
+    public CompanyEntity updateCompany(CompanyEntity company, Long companyId) throws CompanyNotFoundByIdException, CompanyAlreadyExistsException {
         CompanyEntity updCompany = companyRepo.findById(companyId).orElse(null);
+        if(updCompany == null) {
+            throw new CompanyNotFoundByIdException("Компании с таким Id не существует.");
+        }
+        if(companyRepo.findByCompanyName(company.getCompanyName())!=null) {
+            throw new CompanyAlreadyExistsException("Компания с таким названием уже существует.");
+        }
         return mapCompany(company, updCompany);
     }
 
     @Override
-    public void deleteCompany(Long companyId) {
+    public void deleteCompany(Long companyId, Long userId) {
+        CompanyEntity company = companyRepo.findById(companyId).orElse(null);
+        UserEntity user = userRepo.findById(userId).orElse(null);
+
+        user.removeCompany(company);
+        company.removeUserAssociations();
         companyRepo.deleteById(companyId);
     }
 
@@ -79,9 +95,29 @@ public class CompanyServiceImpl implements CompanyService {
 
         return company.getUsers();
     }
+
+    @Override
+    public CompanyDTO getOneCompany(Long companyId) throws CompanyNotFoundByIdException {
+        CompanyEntity company = companyRepo.findById(companyId).orElse(null);
+        if(company == null) {
+            throw new CompanyNotFoundByIdException("Компании с таким Id не существует.");
+        }
+
+        return new CompanyDTO(
+                company.getId(),
+                company.getCompanyName(),
+                company.getInn(),
+                company.getPhNumber(),
+                company.getCompanyTag(),
+                company.getAddress(),
+                company.getEmail(),
+                company.getExperience(),
+                company.getUsers()
+        );
+    }
+
     private CompanyEntity mapCompany(CompanyEntity company, CompanyEntity updCompany) {
         updCompany.setCompanyTag(company.getCompanyTag()==null ? updCompany.getCompanyTag() : company.getCompanyTag());
-        updCompany.setCompanyName(company.getCompanyName()==null ? updCompany.getCompanyName() : company.getCompanyName());
         updCompany.setInn(company.getInn()==null ? updCompany.getInn() : company.getInn());
         updCompany.setPhNumber(company.getPhNumber()==null ? updCompany.getPhNumber() : company.getPhNumber());
         updCompany.setEmail(company.getEmail()==null ? updCompany.getEmail() : company.getEmail());
