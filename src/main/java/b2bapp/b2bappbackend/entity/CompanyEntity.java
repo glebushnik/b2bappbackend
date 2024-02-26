@@ -36,8 +36,6 @@ public class CompanyEntity {
     @JsonIgnore
     private Set<UserEntity> users = new HashSet<>();
 
-    public CompanyEntity() {
-    }
 
     @PreRemove
     public void removeUserAssociations() {

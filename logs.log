@@ -1,0 +1,38 @@
+2024-02-26 13:56:15,906 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 46703 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-02-26 13:56:15,907 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-02-26 13:56:15,926 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-02-26 13:56:15,926 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-02-26 13:56:16,168 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-02-26 13:56:16,190 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
+2024-02-26 13:56:16,409 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-02-26 13:56:16,414 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-02-26 13:56:16,414 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-02-26 13:56:16,438 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-02-26 13:56:16,438 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 512 ms
+2024-02-26 13:56:16,501 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-02-26 13:56:16,554 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b7847ed
+2024-02-26 13:56:16,555 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-02-26 13:56:16,573 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-02-26 13:56:16,599 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-02-26 13:56:16,600 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-02-26 13:56:16,734 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-02-26 13:56:16,762 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-02-26 13:56:17,134 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-02-26 13:56:17,135 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 13:56:17,297 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-02-26 13:56:17,433 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-02-26 13:56:17,449 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-02-26 13:56:17,454 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 1.711 seconds (process running for 1.956)
+2024-02-26 13:56:34,422 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-02-26 13:56:34,422 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-02-26 13:56:34,423 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
+2024-02-26 13:56:34,551 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-1] Компания с таким названием уже существует.
+2024-02-26 13:57:03,469 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-2] Компания с таким названием уже существует.
+2024-02-26 13:57:17,356 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-4] SQL Error: 0, SQLState: 23502
+2024-02-26 13:57:17,364 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-4] ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
+  Подробности: Failing row contains (25, null, 123456, 123456, factory, lenina, testmail, description, f).
+2024-02-26 13:57:17,404 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-4] could not execute statement [ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
+  Подробности: Failing row contains (25, null, 123456, 123456, factory, lenina, testmail, description, f).] [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; SQL [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; constraint [companyname" of relation "companies]
+2024-02-26 13:57:36,990 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-02-26 13:57:36,992 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-02-26 13:57:36,993 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

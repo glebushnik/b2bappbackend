@@ -9,6 +9,9 @@ import b2bapp.b2bappbackend.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.util.List;
 import java.util.Set;
@@ -17,7 +20,7 @@ import java.util.Set;
 @RequestMapping("/api/companies")
 public class CompanyController {
     private final CompanyService companyService;
-
+    private final Logger logger = LoggerFactory.getLogger(CompanyController.class);
     @Autowired
     public CompanyController(CompanyService companyService) {
         this.companyService = companyService;
@@ -28,8 +31,10 @@ public class CompanyController {
         try {
             return ResponseEntity.ok().body(companyService.createCompany(company, userId));
         }catch (CompanyAlreadyExistsException e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }catch (Exception e){
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -40,6 +45,7 @@ public class CompanyController {
             List<CompanyDTO> companies = companyService.getAllCompanies();
             return ResponseEntity.ok().body(companies);
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -50,8 +56,10 @@ public class CompanyController {
             Set<UserEntity> users = companyService.getCompanyUsers(companyId);
             return ResponseEntity.ok().body(users);
         } catch (CompanyNotFoundByIdException e){
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -61,10 +69,13 @@ public class CompanyController {
         try {
             return ResponseEntity.ok().body(companyService.updateCompany(company, companyId));
         } catch (CompanyNotFoundByIdException e){
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (CompanyAlreadyExistsException e){
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -75,6 +86,7 @@ public class CompanyController {
             companyService.deleteCompany(companyId, userId);
             return ResponseEntity.ok().body("Вы успешно удалили компанию.");
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -84,6 +96,7 @@ public class CompanyController {
         try{
             return ResponseEntity.ok().body(companyService.addCompanyUser(userId, companyId));
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
@@ -93,8 +106,10 @@ public class CompanyController {
         try {
             return ResponseEntity.ok().body(companyService.getOneCompany(companyId));
         } catch (CompanyNotFoundByIdException e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch(Exception e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
