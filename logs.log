@@ -1,38 +1,250 @@
-2024-02-26 13:56:15,906 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 46703 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
-2024-02-26 13:56:15,907 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
-2024-02-26 13:56:15,926 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2024-02-26 13:56:15,926 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2024-02-26 13:56:16,168 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-02-26 13:56:16,190 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 19 ms. Found 2 JPA repository interfaces.
-2024-02-26 13:56:16,409 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
-2024-02-26 13:56:16,414 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
-2024-02-26 13:56:16,414 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
-2024-02-26 13:56:16,438 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
-2024-02-26 13:56:16,438 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 512 ms
-2024-02-26 13:56:16,501 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
-2024-02-26 13:56:16,554 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2b7847ed
-2024-02-26 13:56:16,555 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
-2024-02-26 13:56:16,573 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-02-26 13:56:16,599 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
-2024-02-26 13:56:16,600 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
-2024-02-26 13:56:16,734 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-02-26 13:56:16,762 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-02-26 13:56:17,134 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
-2024-02-26 13:56:17,135 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-02-26 13:56:17,297 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-02-26 13:56:17,433 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
-2024-02-26 13:56:17,449 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
-2024-02-26 13:56:17,454 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 1.711 seconds (process running for 1.956)
-2024-02-26 13:56:34,422 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-02-26 13:56:34,422 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
-2024-02-26 13:56:34,423 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
-2024-02-26 13:56:34,551 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-1] Компания с таким названием уже существует.
-2024-02-26 13:57:03,469 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-2] Компания с таким названием уже существует.
-2024-02-26 13:57:17,356 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-4] SQL Error: 0, SQLState: 23502
-2024-02-26 13:57:17,364 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-4] ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
-  Подробности: Failing row contains (25, null, 123456, 123456, factory, lenina, testmail, description, f).
-2024-02-26 13:57:17,404 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-4] could not execute statement [ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
-  Подробности: Failing row contains (25, null, 123456, 123456, factory, lenina, testmail, description, f).] [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; SQL [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; constraint [companyname" of relation "companies]
-2024-02-26 13:57:36,990 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
-2024-02-26 13:57:36,992 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
-2024-02-26 13:57:36,993 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-03-04 18:09:41,242 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 54658 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:09:41,243 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:09:41,263 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04 18:09:41,264 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04 18:09:41,488 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:09:41,510 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:09:41,719 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:09:41,723 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:09:41,723 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:09:41,747 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:09:41,747 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 483 ms
+2024-03-04 18:09:41,806 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-03-04 18:09:41,844 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@5cf4233a
+2024-03-04 18:09:41,845 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-03-04 18:09:41,861 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:09:41,879 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-03-04 18:09:41,880 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-03-04 18:09:41,983 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:09:42,007 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:09:42,358 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:09:42,359 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:09:42,503 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:09:42,636 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-03-04 18:09:42,652 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-03-04 18:09:42,657 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 1.575 seconds (process running for 1.8)
+2024-03-04 18:09:48,921 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04 18:09:48,921 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-04 18:09:48,922 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
+2024-03-04 18:15:26,243 [INFO] org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [File Watcher] Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-03-04 18:15:26,259 [INFO] org.apache.catalina.core.StandardService [Thread-5] Stopping service [Tomcat]
+2024-03-04 18:15:26,260 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [Thread-5] Destroying Spring FrameworkServlet 'dispatcherServlet'
+2024-03-04 18:15:26,264 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-5] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:15:26,266 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown initiated...
+2024-03-04 18:15:26,268 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-5] HikariPool-1 - Shutdown completed.
+2024-03-04 18:15:26,302 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 54658 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:15:26,302 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:15:26,358 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:15:26,362 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 3 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:15:26,398 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:15:26,398 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:15:26,398 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:15:26,402 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:15:26,403 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 100 ms
+2024-03-04 18:15:26,418 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Starting...
+2024-03-04 18:15:26,426 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-2 - Added connection org.postgresql.jdbc.PgConnection@5abd678
+2024-03-04 18:15:26,427 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-2 - Start completed.
+2024-03-04 18:15:26,427 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:15:26,431 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:15:26,434 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:15:26,457 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:15:26,457 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:15:26,498 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:15:26,540 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-03-04 18:15:26,547 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-03-04 18:15:26,549 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 0.258 seconds (process running for 345.69)
+2024-03-04 18:15:26,550 [INFO] org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2024-03-04 18:16:17,667 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 54837 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:16:17,668 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:16:17,686 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04 18:16:17,686 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04 18:16:17,929 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:16:17,953 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:16:18,171 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:16:18,175 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:16:18,175 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:16:18,199 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:16:18,200 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 514 ms
+2024-03-04 18:16:18,262 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-03-04 18:16:18,303 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4da4b5a3
+2024-03-04 18:16:18,303 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-03-04 18:16:18,322 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:16:18,347 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-03-04 18:16:18,348 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-03-04 18:16:18,430 [INFO] org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener [File Watcher] Restarting due to 1 class path change (1 addition, 0 deletions, 0 modifications)
+2024-03-04 18:16:18,444 [INFO] org.apache.catalina.core.StandardService [Thread-7] Stopping service [Tomcat]
+2024-03-04 18:16:18,446 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [Thread-7] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:16:18,447 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-7] HikariPool-2 - Shutdown initiated...
+2024-03-04 18:16:18,447 [INFO] com.zaxxer.hikari.HikariDataSource [Thread-7] HikariPool-2 - Shutdown completed.
+2024-03-04 18:16:18,479 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:16:18,485 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 54658 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:16:18,485 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:16:18,529 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:16:18,539 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:16:18,544 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 4 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:16:18,580 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:16:18,580 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:16:18,580 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:16:18,584 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:16:18,585 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 99 ms
+2024-03-04 18:16:18,601 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Starting...
+2024-03-04 18:16:18,608 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-3 - Added connection org.postgresql.jdbc.PgConnection@5e2827a7
+2024-03-04 18:16:18,610 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-3 - Start completed.
+2024-03-04 18:16:18,611 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:16:18,614 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:16:18,617 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:16:18,640 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:16:18,640 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:16:18,682 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:16:18,725 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-03-04 18:16:18,732 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-03-04 18:16:18,734 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 0.26 seconds (process running for 397.875)
+2024-03-04 18:16:18,735 [INFO] org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener [restartedMain] Condition evaluation unchanged
+2024-03-04 18:16:18,909 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:16:18,910 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:16:19,059 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:16:19,192 [WARN] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2024-03-04 18:16:19,202 [WARN] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-03-04 18:16:19,203 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:16:19,205 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2024-03-04 18:16:19,206 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2024-03-04 18:16:19,207 [INFO] org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat]
+2024-03-04 18:16:19,213 [INFO] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger [restartedMain] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-04 18:16:19,220 [ERROR] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2024-03-04 18:18:13,984 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 54944 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:18:13,985 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:18:14,004 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04 18:18:14,004 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04 18:18:14,228 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:18:14,251 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 20 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:18:14,458 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:18:14,462 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:18:14,462 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:18:14,486 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:18:14,486 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 482 ms
+2024-03-04 18:18:14,548 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-03-04 18:18:14,586 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@3934053b
+2024-03-04 18:18:14,586 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-03-04 18:18:14,602 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:18:14,621 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-03-04 18:18:14,622 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-03-04 18:18:14,726 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:18:14,750 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:18:15,101 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:18:15,102 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:18:15,247 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:18:15,379 [WARN] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] Unable to start LiveReload server
+2024-03-04 18:18:15,389 [WARN] org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext [restartedMain] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'
+2024-03-04 18:18:15,390 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:18:15,391 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown initiated...
+2024-03-04 18:18:15,392 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Shutdown completed.
+2024-03-04 18:18:15,393 [INFO] org.apache.catalina.core.StandardService [restartedMain] Stopping service [Tomcat]
+2024-03-04 18:18:15,399 [INFO] org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger [restartedMain] 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2024-03-04 18:18:15,406 [ERROR] org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter [restartedMain] 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8081 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8081 or configure this application to listen on another port.
+
+2024-03-04 18:18:46,925 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:18:46,926 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-3 - Shutdown initiated...
+2024-03-04 18:18:46,928 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-3 - Shutdown completed.
+2024-03-04 18:19:00,118 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 55009 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:19:00,119 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:19:00,137 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04 18:19:00,137 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04 18:19:00,355 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:19:00,379 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:19:00,592 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:19:00,596 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:19:00,596 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:19:00,620 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:19:00,620 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 483 ms
+2024-03-04 18:19:00,672 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-03-04 18:19:00,709 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4301643
+2024-03-04 18:19:00,709 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-03-04 18:19:00,725 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:19:00,745 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-03-04 18:19:00,745 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-03-04 18:19:00,851 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:19:00,879 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:19:01,227 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:19:01,229 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:19:01,372 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:19:01,501 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-03-04 18:19:01,517 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-03-04 18:19:01,522 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 1.561 seconds (process running for 1.812)
+2024-03-04 18:19:11,018 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04 18:19:11,019 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-04 18:19:11,019 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 0 ms
+2024-03-04 18:19:11,039 [INFO] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-1] Got company by id ${companyId}
+2024-03-04 18:19:27,865 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:19:27,867 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-03-04 18:19:27,868 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.
+2024-03-04 18:21:33,424 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Starting B2bappbackendApplication using Java 17.0.9 with PID 55055 (/Users/glebushnik/Desktop/backend/b2bappbackend/target/classes started by glebushnik in /Users/glebushnik/Desktop/backend/b2bappbackend)
+2024-03-04 18:21:33,425 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] No active profile set, falling back to 1 default profile: "default"
+2024-03-04 18:21:33,443 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2024-03-04 18:21:33,443 [INFO] org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor [restartedMain] For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2024-03-04 18:21:33,672 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-03-04 18:21:33,696 [INFO] org.springframework.data.repository.config.RepositoryConfigurationDelegate [restartedMain] Finished Spring Data repository scanning in 21 ms. Found 2 JPA repository interfaces.
+2024-03-04 18:21:33,923 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat initialized with port(s): 8081 (http)
+2024-03-04 18:21:33,928 [INFO] org.apache.catalina.core.StandardService [restartedMain] Starting service [Tomcat]
+2024-03-04 18:21:33,928 [INFO] org.apache.catalina.core.StandardEngine [restartedMain] Starting Servlet engine: [Apache Tomcat/10.1.15]
+2024-03-04 18:21:33,954 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [restartedMain] Initializing Spring embedded WebApplicationContext
+2024-03-04 18:21:33,954 [INFO] org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext [restartedMain] Root WebApplicationContext: initialization completed in 510 ms
+2024-03-04 18:21:34,015 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Starting...
+2024-03-04 18:21:34,063 [INFO] com.zaxxer.hikari.pool.HikariPool [restartedMain] HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@4e47157a
+2024-03-04 18:21:34,063 [INFO] com.zaxxer.hikari.HikariDataSource [restartedMain] HikariPool-1 - Start completed.
+2024-03-04 18:21:34,080 [INFO] org.hibernate.jpa.internal.util.LogHelper [restartedMain] HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-03-04 18:21:34,102 [INFO] org.hibernate.Version [restartedMain] HHH000412: Hibernate ORM core version 6.2.13.Final
+2024-03-04 18:21:34,103 [INFO] org.hibernate.cfg.Environment [restartedMain] HHH000406: Using bytecode reflection optimizer
+2024-03-04 18:21:34,232 [INFO] org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo [restartedMain] No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-03-04 18:21:34,256 [WARN] org.hibernate.orm.deprecation [restartedMain] HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-03-04 18:21:34,610 [INFO] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator [restartedMain] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-03-04 18:21:34,611 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [restartedMain] Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 18:21:34,753 [WARN] org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration [restartedMain] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-03-04 18:21:34,881 [INFO] org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer [restartedMain] LiveReload server is running on port 35729
+2024-03-04 18:21:34,897 [INFO] org.springframework.boot.web.embedded.tomcat.TomcatWebServer [restartedMain] Tomcat started on port(s): 8081 (http) with context path ''
+2024-03-04 18:21:34,902 [INFO] b2bapp.b2bappbackend.B2bappbackendApplication [restartedMain] Started B2bappbackendApplication in 1.636 seconds (process running for 1.862)
+2024-03-04 18:21:38,365 [INFO] org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8081-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-03-04 18:21:38,365 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Initializing Servlet 'dispatcherServlet'
+2024-03-04 18:21:38,366 [INFO] org.springframework.web.servlet.DispatcherServlet [http-nio-8081-exec-1] Completed initialization in 1 ms
+2024-03-04 18:21:38,385 [INFO] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-1] Got company by ID : 7
+2024-03-04 18:28:20,959 [WARN] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-3] SQL Error: 0, SQLState: 23502
+2024-03-04 18:28:20,959 [ERROR] org.hibernate.engine.jdbc.spi.SqlExceptionHelper [http-nio-8081-exec-3] ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
+  Подробности: Failing row contains (26, null, 123456, 123456, factory, lenina, testmail, description, f).
+2024-03-04 18:28:20,962 [TRACE] b2bapp.b2bappbackend.controller.CompanyController [http-nio-8081-exec-3] could not execute statement [ERROR: null value in column "companyname" of relation "companies" violates not-null constraint
+  Подробности: Failing row contains (26, null, 123456, 123456, factory, lenina, testmail, description, f).] [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; SQL [insert into companies (address,companyname,companytag,email,experience,inn,isactive,phnumber) values (?,?,?,?,?,?,?,?)]; constraint [companyname" of relation "companies]
+2024-03-04 19:07:27,017 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=31m52s767ms).
+2024-03-04 20:14:29,094 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h6m18s280ms).
+2024-03-04 21:10:16,067 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=55m46s973ms).
+2024-03-04 22:26:43,788 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h16m27s720ms).
+2024-03-04 22:34:45,349 [WARN] com.zaxxer.hikari.pool.HikariPool [HikariPool-1 housekeeper] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m1s562ms).
+2024-03-04 22:53:29,853 [INFO] org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean [SpringApplicationShutdownHook] Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-03-04 22:53:29,857 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown initiated...
+2024-03-04 22:53:29,859 [INFO] com.zaxxer.hikari.HikariDataSource [SpringApplicationShutdownHook] HikariPool-1 - Shutdown completed.

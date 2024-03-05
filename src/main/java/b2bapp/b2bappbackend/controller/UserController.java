@@ -25,6 +25,7 @@ public class UserController {
     @GetMapping("/{userId}/mycompanies")
     public ResponseEntity getMyCompanies(@PathVariable Long userId) {
         try {
+            logger.info(String.format("Got company list for user, User ID : %d", userId));
             return ResponseEntity.ok().body(userService.getMyCompanies(userId));
         } catch (UserNotFoundByIdException e){
             logger.trace(e.getMessage());

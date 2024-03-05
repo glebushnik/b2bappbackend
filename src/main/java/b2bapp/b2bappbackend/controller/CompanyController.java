@@ -29,6 +29,7 @@ public class CompanyController {
     @PostMapping("/new")
     public ResponseEntity createCompany(@RequestBody CompanyEntity company, @RequestParam Long userId){
         try {
+            logger.info("Created a company");
             return ResponseEntity.ok().body(companyService.createCompany(company, userId));
         }catch (CompanyAlreadyExistsException e) {
             logger.trace(e.getMessage());
@@ -43,6 +44,7 @@ public class CompanyController {
     public ResponseEntity getAllCompanies(){
         try {
             List<CompanyDTO> companies = companyService.getAllCompanies();
+            logger.info("Got all companies");
             return ResponseEntity.ok().body(companies);
         } catch(Exception e) {
             logger.trace(e.getMessage());
@@ -54,6 +56,7 @@ public class CompanyController {
     public ResponseEntity getCompanyUsers(@PathVariable Long companyId) {
         try {
             Set<UserEntity> users = companyService.getCompanyUsers(companyId);
+            logger.info(String.format("Got user list for company, Company ID : %d", companyId));
             return ResponseEntity.ok().body(users);
         } catch (CompanyNotFoundByIdException e){
             logger.trace(e.getMessage());
@@ -67,6 +70,7 @@ public class CompanyController {
     @PutMapping()
     public ResponseEntity updateCompany(@RequestBody CompanyEntity company,@RequestParam Long companyId) {
         try {
+            logger.info(String.format("Updated company, Company ID : %d", companyId));
             return ResponseEntity.ok().body(companyService.updateCompany(company, companyId));
         } catch (CompanyNotFoundByIdException e){
             logger.trace(e.getMessage());
@@ -83,6 +87,7 @@ public class CompanyController {
     @DeleteMapping("/{companyId}/{userId}")
     public ResponseEntity deleteCompany(@PathVariable Long companyId, @PathVariable Long userId) {
         try {
+            logger.info(String.format("Deleted company, Company ID : %d, User ID : %d", companyId, userId));
             companyService.deleteCompany(companyId, userId);
             return ResponseEntity.ok().body("Вы успешно удалили компанию.");
         } catch(Exception e) {
@@ -94,6 +99,7 @@ public class CompanyController {
     @PutMapping("/add/{userId}")
     public ResponseEntity addUsers(@PathVariable Long userId, @RequestParam Long companyId) {
         try{
+            logger.info(String.format("Added user to company, Company ID : %d, User ID : %d", companyId, userId));
             return ResponseEntity.ok().body(companyService.addCompanyUser(userId, companyId));
         } catch(Exception e) {
             logger.trace(e.getMessage());
@@ -104,6 +110,7 @@ public class CompanyController {
     @GetMapping()
     public ResponseEntity getCompany(@RequestParam Long companyId) {
         try {
+            logger.info(String.format("Got company by ID : %d", companyId));
             return ResponseEntity.ok().body(companyService.getOneCompany(companyId));
         } catch (CompanyNotFoundByIdException e) {
             logger.trace(e.getMessage());
