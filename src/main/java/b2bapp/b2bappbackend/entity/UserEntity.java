@@ -12,10 +12,10 @@ import java.util.Set;
 
 @Entity
 @JsonIgnoreProperties
-@Table(name = "users")
+@Table(name = "jwt_auth_user")
 public class UserEntity {
     @Id
-    @Column(name = "user_id")
+    @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String password;
