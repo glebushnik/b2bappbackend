@@ -1,12 +1,20 @@
 package b2bapp.b2bappbackend.DTO;
 
-public class CompanyDTO {
-    public Long id;
-    public String companyName;
-    public String inn;
-    public String phNumber;
-    public String companyTag;
-    public String address;
-    public String email;
-    public String experience;
+
+import b2bapp.b2bappbackend.entity.UserEntity;
+
+import java.util.Set;
+
+public record CompanyDTO(
+        Long id,
+        String companyName,
+        String inn,
+        String phNumber,
+        String companyTag,
+        String address,
+        String email,
+        String description,
+        Set<UserEntity> users
+) {
+
 }

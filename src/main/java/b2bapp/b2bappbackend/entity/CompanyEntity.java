@@ -3,10 +3,13 @@ package b2bapp.b2bappbackend.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
+import org.antlr.v4.runtime.misc.NotNull;
+import org.springframework.validation.annotation.Validated;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Validated
 @Entity
 @JsonIgnoreProperties
 @Table(name = "companies")
@@ -28,13 +31,18 @@ public class CompanyEntity {
     @Column(name = "isactive")
     private Boolean isActive = false;
 
-    @ManyToMany(mappedBy = "companies")
+
+    @ManyToMany(mappedBy = "companies", fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     @JsonIgnore
     private Set<UserEntity> users = new HashSet<>();
 
-    public CompanyEntity() {
-    }
 
+    @PreRemove
+    public void removeUserAssociations() {
+        for(UserEntity user : this.users) {
+            user.getCompanies().remove(this);
+        }
+    }
     public Long getId() {
         return id;
     }
@@ -114,4 +122,5 @@ public class CompanyEntity {
     public Boolean getActive() {
         return isActive;
     }
+
 }
