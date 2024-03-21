@@ -1,7 +1,7 @@
 package b2bapp.b2bappbackend.service.impl;
 
 import b2bapp.b2bappbackend.DTO.CompanyDTO;
-import b2bapp.b2bappbackend.DTO.CompanyDTOMapper;
+import b2bapp.b2bappbackend.DTO.mapper.CompanyDTOMapper;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
 import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
@@ -9,7 +9,6 @@ import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
 import b2bapp.b2bappbackend.repository.CompanyRepo;
 import b2bapp.b2bappbackend.repository.UserRepo;
 import b2bapp.b2bappbackend.service.CompanyService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

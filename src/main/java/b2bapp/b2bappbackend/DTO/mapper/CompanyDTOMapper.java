@@ -1,5 +1,6 @@
-package b2bapp.b2bappbackend.DTO;
+package b2bapp.b2bappbackend.DTO.mapper;
 
+import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import org.springframework.stereotype.Service;
 

@@ -7,6 +7,7 @@ import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.validation.annotation.Validated;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Validated
@@ -37,12 +38,25 @@ public class CompanyEntity {
     private Set<UserEntity> users = new HashSet<>();
 
 
+    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<ReviewEntity> reviews;
+
     @PreRemove
     public void removeUserAssociations() {
         for(UserEntity user : this.users) {
             user.getCompanies().remove(this);
         }
     }
+
+    public List<ReviewEntity> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<ReviewEntity> reviews) {
+        this.reviews = reviews;
+    }
+
     public Long getId() {
         return id;
     }
