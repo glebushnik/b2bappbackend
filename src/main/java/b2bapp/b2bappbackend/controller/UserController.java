@@ -1,5 +1,7 @@
 package b2bapp.b2bappbackend.controller;
 
+import b2bapp.b2bappbackend.exception.review.ReviewNotFoundByIdException;
+import b2bapp.b2bappbackend.exception.user.UserIsNotAdminException;
 import b2bapp.b2bappbackend.exception.user.UserNotFoundByIdException;
 import b2bapp.b2bappbackend.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +34,20 @@ public class UserController {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (Exception e) {
             logger.trace(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @PutMapping("/moderate/{reviewId}")
+    public ResponseEntity moderateReview(@PathVariable Long reviewId, @RequestParam Long userId) {
+        try {
+            userService.moderateReview(userId,reviewId);
+            return ResponseEntity.ok().body(String.format("Отзыв с ID %d прошел модерацию.", reviewId));
+        } catch (UserNotFoundByIdException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (UserIsNotAdminException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (ReviewNotFoundByIdException e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }

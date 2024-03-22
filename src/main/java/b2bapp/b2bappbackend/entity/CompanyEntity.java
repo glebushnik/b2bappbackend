@@ -38,7 +38,10 @@ public class CompanyEntity {
     private Set<UserEntity> users = new HashSet<>();
 
 
-    @OneToMany(mappedBy = "company", fetch = FetchType.LAZY)
+    @OneToMany( mappedBy = "company",
+                fetch = FetchType.LAZY,
+                cascade = CascadeType.REMOVE,
+                orphanRemoval = true)
     @JsonIgnore
     private List<ReviewEntity> reviews;
 

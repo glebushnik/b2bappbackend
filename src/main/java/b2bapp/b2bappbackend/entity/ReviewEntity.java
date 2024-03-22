@@ -3,7 +3,6 @@ package b2bapp.b2bappbackend.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
-import java.sql.Date;
 import java.time.LocalDateTime;
 
 
@@ -84,4 +83,5 @@ public class ReviewEntity {
     public void setRating(Short rating) {
         this.rating = rating;
     }
+
 }

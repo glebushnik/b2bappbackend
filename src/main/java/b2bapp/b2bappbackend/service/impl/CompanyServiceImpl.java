@@ -3,6 +3,7 @@ package b2bapp.b2bappbackend.service.impl;
 import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.DTO.mapper.CompanyDTOMapper;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
+import b2bapp.b2bappbackend.entity.ReviewEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
 import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
@@ -123,5 +124,17 @@ public class CompanyServiceImpl implements CompanyService {
         updCompany.setExperience(company.getExperience()==null ? updCompany.getExperience() : company.getExperience());
 
         return companyRepo.save(updCompany);
+    }
+
+    @Override
+    public List<ReviewEntity> getCompanyReviews(Long companyId) throws CompanyNotFoundByIdException {
+        CompanyEntity company = companyRepo.findById(companyId).orElse(null);
+
+        if(company == null) {
+            throw new CompanyNotFoundByIdException("Компании с таким ID не существует.");
+        }
+
+
+        return company.getReviews();
     }
 }

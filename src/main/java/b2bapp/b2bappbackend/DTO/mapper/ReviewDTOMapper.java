@@ -6,8 +6,8 @@ import b2bapp.b2bappbackend.entity.UserEntity;
 
 import java.time.LocalDateTime;
 
-public class ReviewMapper {
-    public ReviewMapper() {
+public class ReviewDTOMapper {
+    public ReviewDTOMapper() {
     }
 
 

@@ -2,6 +2,7 @@ package b2bapp.b2bappbackend.controller;
 
 import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
+import b2bapp.b2bappbackend.entity.ReviewEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
 import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
@@ -117,6 +118,18 @@ public class CompanyController {
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch(Exception e) {
             logger.trace(e.getMessage());
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{companyId}/reviews")
+    public ResponseEntity getCompanyReviews(@PathVariable Long companyId) {
+        try {
+            List<ReviewEntity> reviews = companyService.getCompanyReviews(companyId);
+            return ResponseEntity.ok().body(reviews);
+        } catch (CompanyNotFoundByIdException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
