@@ -69,7 +69,7 @@ public class UserServiceImpl implements UserService {
             throw new UserIsNotAdminException("Недостаточно прав.");
         }
 
-        review.setModerated(Boolean.TRUE);
+        review.setModerated(!review.getModerated());
         reviewRepo.save(review);
     }
 }

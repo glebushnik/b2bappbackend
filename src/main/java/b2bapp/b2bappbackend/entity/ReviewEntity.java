@@ -83,5 +83,4 @@ public class ReviewEntity {
     public void setRating(Short rating) {
         this.rating = rating;
     }
-
 }
