@@ -41,13 +41,17 @@ public class UserController {
     @PutMapping("/moderate/{reviewId}")
     public ResponseEntity moderateReview(@PathVariable Long reviewId, @RequestParam Long userId) {
         try {
+            logger.info(String.format("User (userId : %d) got review (reviewId : %d)"), userId, reviewId);
             userService.moderateReview(userId,reviewId);
             return ResponseEntity.ok().body(String.format("Отзыв с ID %d прошел модерацию.", reviewId));
         } catch (UserNotFoundByIdException e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (UserIsNotAdminException e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         } catch (ReviewNotFoundByIdException e) {
+            logger.trace(e.getMessage());
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
