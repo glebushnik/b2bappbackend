@@ -10,9 +10,10 @@ public record CompanyDTO(
         String companyName,
         String inn,
         String phNumber,
-        String companyTag,
+        String category,
         String address,
         String email,
+        String subcategory,
         String description,
         Set<UserEntity> users
 ) {

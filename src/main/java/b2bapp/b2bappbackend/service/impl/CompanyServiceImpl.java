@@ -5,9 +5,13 @@ import b2bapp.b2bappbackend.DTO.mapper.CompanyDTOMapper;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.ReviewEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
+import b2bapp.b2bappbackend.exception.category.CategoryNotFoundByNameException;
 import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
+import b2bapp.b2bappbackend.exception.subcategory.SubcategoryNotFoundByNameException;
+import b2bapp.b2bappbackend.repository.CategoryRepo;
 import b2bapp.b2bappbackend.repository.CompanyRepo;
+import b2bapp.b2bappbackend.repository.SubcategoryRepo;
 import b2bapp.b2bappbackend.repository.UserRepo;
 import b2bapp.b2bappbackend.service.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +26,31 @@ public class CompanyServiceImpl implements CompanyService {
     private final CompanyRepo companyRepo;
     private final UserRepo userRepo;
     private final CompanyDTOMapper companyDTOMapper;
+    private final CategoryRepo categoryRepo;
+
+    private final SubcategoryRepo subcategoryRepo;
 
     @Autowired
     public CompanyServiceImpl(CompanyRepo companyRepo,
                               UserRepo userRepo,
-                              CompanyDTOMapper companyDTOMapper) {
+                              CompanyDTOMapper companyDTOMapper, CategoryRepo categoryRepo, SubcategoryRepo subcategoryRepo) {
         this.companyRepo = companyRepo;
         this.userRepo = userRepo;
         this.companyDTOMapper = companyDTOMapper;
+        this.categoryRepo = categoryRepo;
+        this.subcategoryRepo = subcategoryRepo;
     }
 
     @Override
-    public CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException {
+    public CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException, CategoryNotFoundByNameException, SubcategoryNotFoundByNameException {
         if(companyRepo.findByCompanyName(company.getCompanyName())!=null){
             throw new CompanyAlreadyExistsException("Компания с таким названием уже существует.");
+        }
+        if(categoryRepo.findCategoryEntitiesByName(company.getCategory())==null) {
+            throw new CategoryNotFoundByNameException("Такой категории не существует");
+        }
+        if(subcategoryRepo.findSubcategoryEntitiesByName(company.getSubcategory()) == null) {
+            throw new SubcategoryNotFoundByNameException("Такой подкатегории не существует");
         }
         companyRepo.save(company);
         UserEntity user = new UserEntity();
@@ -108,7 +123,8 @@ public class CompanyServiceImpl implements CompanyService {
                 company.getCompanyName(),
                 company.getInn(),
                 company.getPhNumber(),
-                company.getCompanyTag(),
+                company.getCategory(),
+                company.getSubcategory(),
                 company.getAddress(),
                 company.getEmail(),
                 company.getExperience(),
@@ -117,7 +133,7 @@ public class CompanyServiceImpl implements CompanyService {
     }
 
     private CompanyEntity mapCompany(CompanyEntity company, CompanyEntity updCompany) {
-        updCompany.setCompanyTag(company.getCompanyTag()==null ? updCompany.getCompanyTag() : company.getCompanyTag());
+        updCompany.setCategory(company.getCategory()==null ? updCompany.getCategory() : company.getCategory());
         updCompany.setInn(company.getInn()==null ? updCompany.getInn() : company.getInn());
         updCompany.setPhNumber(company.getPhNumber()==null ? updCompany.getPhNumber() : company.getPhNumber());
         updCompany.setEmail(company.getEmail()==null ? updCompany.getEmail() : company.getEmail());

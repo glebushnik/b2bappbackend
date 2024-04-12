@@ -24,8 +24,11 @@ public class CompanyEntity {
     private String inn;
     @Column(name = "phnumber")
     private String phNumber;
-    @Column(name = "companytag")
-    private String companyTag;
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "subcategory")
+    private String subcategory;
     private String address;
     private String email;
     private String experience;
@@ -84,12 +87,12 @@ public class CompanyEntity {
         this.inn = inn;
     }
 
-    public String getCompanyTag() {
-        return companyTag;
+    public String getCategory() {
+        return category;
     }
 
-    public void setCompanyTag(String companyTag) {
-        this.companyTag = companyTag;
+    public void setCategory(String category) {
+        this.category = category;
     }
 
     public String getAddress() {
@@ -140,4 +143,11 @@ public class CompanyEntity {
         return isActive;
     }
 
+    public String getSubcategory() {
+        return subcategory;
+    }
+
+    public void setSubcategory(String subcategory) {
+        this.subcategory = subcategory;
+    }
 }

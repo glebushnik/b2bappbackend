@@ -4,14 +4,16 @@ import b2bapp.b2bappbackend.DTO.CompanyDTO;
 import b2bapp.b2bappbackend.entity.CompanyEntity;
 import b2bapp.b2bappbackend.entity.ReviewEntity;
 import b2bapp.b2bappbackend.entity.UserEntity;
+import b2bapp.b2bappbackend.exception.category.CategoryNotFoundByNameException;
 import b2bapp.b2bappbackend.exception.company.CompanyAlreadyExistsException;
 import b2bapp.b2bappbackend.exception.company.CompanyNotFoundByIdException;
+import b2bapp.b2bappbackend.exception.subcategory.SubcategoryNotFoundByNameException;
 
 import java.util.List;
 import java.util.Set;
 
 public interface CompanyService {
-    CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException;
+    CompanyEntity createCompany(CompanyEntity company, Long userId) throws CompanyAlreadyExistsException, CategoryNotFoundByNameException, SubcategoryNotFoundByNameException;
     List<CompanyDTO> getAllCompanies();
     Set<UserEntity> getCompanyUsers(Long companyId) throws CompanyNotFoundByIdException;
     Set<UserEntity> addCompanyUser(Long userId, Long companyId);
