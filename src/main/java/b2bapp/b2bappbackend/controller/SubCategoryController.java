@@ -4,13 +4,13 @@ import b2bapp.b2bappbackend.entity.SubcategoryEntity;
 import b2bapp.b2bappbackend.exception.subcategory.SubcategoryAlreadyExistsException;
 import b2bapp.b2bappbackend.exception.subcategory.SubcategoryNotFoundByIdException;
 import b2bapp.b2bappbackend.service.SubcategoryService;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.logging.Logger;
 
 @RestController
 @RequestMapping("/api/subcategories")
