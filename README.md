@@ -1,6 +1,6 @@
 ### Backend Service Documentation for Commercial Proposals Creation
 
-## User Management
+# User Management
 
 ### Endpoints
 
@@ -21,7 +21,7 @@
         - Success: `200 OK` with a moderation message
         - Error: `400 Bad Request` with an error message
 
-## Company Management
+# Company Management
 
 ### Endpoints
 
