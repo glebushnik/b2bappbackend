@@ -1,197 +1,193 @@
-### Документация Backend-части сервиса для создания коммерческих предложений
+### Backend Service Documentation for Commercial Proposals Creation
 
-# Логика работы с пользователями
+## User Management
 
-### Эндпоинты
+### Endpoints
 
 - **GET /api/users/{userId}/mycompanies**
-    - Получить список компаний пользователя по его ID.
-    - Параметры:
-        - userId: Long (Путь)
-    - Ответ:
-        - Успешно: 200 OK со списком компаний
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Retrieve the list of companies associated with a user by their ID.
+    - **Parameters:**
+        - `userId`: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with the list of companies
+        - Error: `400 Bad Request` with an error message
 
 - **PUT /api/users/moderate/{reviewId}**
-    - Модерировать отзыв.
-    - Параметры:
-        - reviewId: Long (Путь)
-        - userId: Long (Запрос)
-    - Ответ:
-        - Успешно: 200 OK с сообщением о модерации отзыва
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Moderate a review.
+    - **Parameters:**
+        - `reviewId`: Long (Path)
+        - `userId`: Long (Query)
+    - **Response:**
+        - Success: `200 OK` with a moderation message
+        - Error: `400 Bad Request` with an error message
 
+## Company Management
 
-# Логика работы с компаниями
+### Endpoints
 
-### Эндпоинты
+- **URL:** `/new`
+- **Method:** `POST`
+- **Parameters:**
+    - `Request Body`: CompanyEntity (JSON)
+    - `Query`: userId (Long)
+- **Description:** Create a new company.
+- **Response:**
+    - Success: `200 OK` - Returns details of the created company.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **POST /api/companies/new**
-    - Создать новую компанию.
-    - Тело запроса: CompanyEntity
-    - Параметры:
-        - userId: Long (Запрос)
-    - Ответ:
-        - Успех: 200 OK с созданной компанией
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/all`
+- **Method:** `GET`
+- **Description:** Get details of all companies.
+- **Response:**
+    - Success: `200 OK` - Returns a list of CompanyDTO objects.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **GET /api/companies/all**
-    - Получить все компании.
-    - Ответ:
-        - Успех: 200 OK со списком компаний
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/{companyId}/users`
+- **Method:** `GET`
+- **Parameters:**
+    - `Path Variable`: companyId (Long)
+- **Description:** Get users associated with a specific company.
+- **Response:**
+    - Success: `200 OK` - Returns a set of UserEntity objects.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **GET /api/companies/{companyId}/users**
-    - Получить список пользователей компании по её ID.
-    - Параметры:
-        - companyId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с списком пользователей
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/`
+- **Method:** `PUT`
+- **Parameters:**
+    - `Request Body`: CompanyEntity (JSON)
+    - `Query`: companyId (Long)
+- **Description:** Update details of an existing company.
+- **Response:**
+    - Success: `200 OK` - Returns updated company details.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **PUT /api/companies**
-    - Обновить информацию о компании.
-    - Тело запроса: CompanyEntity
-    - Параметры:
-        - companyId: Long (Запрос)
-    - Ответ:
-        - Успех: 200 OK с обновленной информацией о компании
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/{companyId}/{userId}`
+- **Method:** `DELETE`
+- **Parameters:**
+    - `Path Variables`: companyId (Long), userId (Long)
+- **Description:** Delete a company.
+- **Response:**
+    - Success: `200 OK` - Returns a success message upon deletion.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **DELETE /api/companies/{companyId}/{userId}**
-    - Удалить компанию по её ID.
-    - Параметры:
-        - companyId: Long (Путь)
-        - userId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с сообщением об успешном удалении
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/add/{userId}`
+- **Method:** `PUT`
+- **Parameters:**
+    - `Path Variable`: userId (Long)
+    - `Query`: companyId (Long)
+- **Description:** Add a user to a company.
+- **Response:**
+    - Success: `200 OK` - Returns updated company details.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **PUT /api/companies/add/{userId}**
-    - Добавить пользователя к компании.
-    - Параметры:
-        - userId: Long (Путь)
-        - companyId: Long (Запрос)
-    - Ответ:
-        - Успех: 200 OK с сообщением об успешном добавлении пользователя
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+- **URL:** `/`
+- **Method:** `GET`
+- **Parameters:**
+    - `Query`: companyId (Long)
+- **Description:** Get details of a specific company.
+- **Response:**
+    - Success: `200 OK` - Returns company details.
+    - Error: `400 Bad Request` - Returns an error message.
 
-- **GET /api/companies**
-    - Получить информацию о компании по её ID.
-    - Параметры:
-        - companyId: Long (Запрос)
-    - Ответ:
-        - Успех: 200 OK с информацией о компании
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+# Review Management
 
-- **GET /api/companies/{companyId}/reviews**
-    - Получить отзывы о компании по её ID.
-    - Параметры:
-        - companyId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK со списком отзывов
-        - Ошибка: 400 Bad Request с сообщением об ошибке
-
-
-# Логика работы с отзывами
-
-### Эндпоинты
+### Endpoints
 
 - **POST /api/reviews/new/{companyId}**
-    - Создать новый отзыв для компании.
-    - Тело запроса: ReviewDTO
-    - Параметры:
-        - companyId: Long (Путь)
-        - userId: Long (Запрос)
-    - Ответ:
-        - Успех: 200 OK с созданным отзывом
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Create a new review for a company.
+    - Request Body: ReviewDTO
+    - Parameters:
+        - companyId: Long (Path)
+        - userId: Long (Query)
+    - **Response:**
+        - Success: `200 OK` with the created review
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/reviews/all**
-    - Получить все отзывы.
-    - Ответ:
-        - Успех: 200 OK с списком отзывов
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get all reviews.
+    - **Response:**
+        - Success: `200 OK` with the list of reviews
+        - Error: `400 Bad Request` with an error message
 
 - **DELETE /api/reviews/{reviewId}/{companyId}**
-    - Удалить отзыв по его ID для определенной компании.
-    - Параметры:
-        - reviewId: Long (Путь)
-        - companyId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с сообщением об успешном удалении
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Delete a review by its ID for a specific company.
+    - Parameters:
+        - reviewId: Long (Path)
+        - companyId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with a success message
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/reviews/{reviewId}**
-    - Получить отзыв по его ID.
-    - Параметры:
-        - reviewId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с отзывом
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get a review by its ID.
+    - Parameters:
+        - reviewId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with the review
+        - Error: `400 Bad Request` with an error message
 
-# Логика работы с категориями
+# Category Management
 
-### Эндпоинты
+### Endpoints
 
 - **POST /api/categories/new**
-    - Создать новую категорию.
-    - Тело запроса: CategoryEntity
-    - Ответ:
-        - Успех: 200 OK с созданной категорией
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Create a new category.
+    - Request Body: CategoryEntity
+    - **Response:**
+        - Success: `200 OK` with the created category
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/categories/all**
-    - Получить все категории.
-    - Ответ:
-        - Успех: 200 OK с списком категорий
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get all categories.
+    - **Response:**
+        - Success: `200 OK` with the list of categories
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/categories/{categoryId}**
-    - Получить категорию по её ID.
-    - Параметры:
-        - categoryId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с категорией
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get a category by its ID.
+    - Parameters:
+        - categoryId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with the category
+        - Error: `400 Bad Request` with an error message
 
 - **DELETE /api/categories/{categoryId}**
-    - Удалить категорию по её ID.
-    - Параметры:
-        - categoryId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с сообщением об успешном удалении
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Delete a category by its ID.
+    - Parameters:
+        - categoryId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with a success message
+        - Error: `400 Bad Request` with an error message
 
-# Логика работы с подкатегориями
+# Subcategory Management
 
-### Эндпоинты 
+### Endpoints
 
 - **POST /api/subcategories/new**
-    - Создать новую подкатегорию.
-    - Тело запроса: SubcategoryEntity
-    - Ответ:
-        - Успех: 200 OK с созданной подкатегорией
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Create a new subcategory.
+    - Request Body: SubcategoryEntity
+    - **Response:**
+        - Success: `200 OK` with the created subcategory
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/subcategories/all**
-    - Получить все подкатегории.
-    - Ответ:
-        - Успех: 200 OK с списком подкатегорий
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get all subcategories.
+    - **Response:**
+        - Success: `200 OK` with the list of subcategories
+        - Error: `400 Bad Request` with an error message
 
 - **GET /api/subcategories/{subcategoryId}**
-    - Получить подкатегорию по её ID.
-    - Параметры:
-        - subcategoryId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с подкатегорией
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Get a subcategory by its ID.
+    - Parameters:
+        - subcategoryId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with the subcategory
+        - Error: `400 Bad Request` with an error message
 
 - **DELETE /api/subcategories/{subcategoryId}**
-    - Удалить подкатегорию по её ID.
-    - Параметры:
-        - subcategoryId: Long (Путь)
-    - Ответ:
-        - Успех: 200 OK с сообщением об успешном удалении
-        - Ошибка: 400 Bad Request с сообщением об ошибке
+    - Delete a subcategory by its ID.
+    - Parameters:
+        - subcategoryId: Long (Path)
+    - **Response:**
+        - Success: `200 OK` with a success message
+        - Error: `400 Bad Request` with an error message
