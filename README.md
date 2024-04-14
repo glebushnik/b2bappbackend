@@ -25,69 +25,69 @@
 
 ### Endpoints
 
-- **URL:** `/new`
-- **Method:** `POST`
-- **Parameters:**
-    - `Request Body`: CompanyEntity (JSON)
-    - `Query`: userId (Long)
-- **Description:** Create a new company.
-- **Response:**
-    - Success: `200 OK` - Returns details of the created company.
-    - Error: `400 Bad Request` - Returns an error message.
+- **POST /api/companies/new**
+    - Create a new company.
+    - **Method:** `POST`
+    - **Parameters:**
+        - `Request Body`: CompanyEntity (JSON)
+        - `Query`: userId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns details of the created company.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/all`
-- **Method:** `GET`
-- **Description:** Get details of all companies.
-- **Response:**
-    - Success: `200 OK` - Returns a list of CompanyDTO objects.
-    - Error: `400 Bad Request` - Returns an error message.
+- **GET /api/companies/all**
+    - Get details of all companies.
+    - **Method:** `GET`
+    - **Response:**
+        - Success: `200 OK` - Returns a list of CompanyDTO objects.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/{companyId}/users`
-- **Method:** `GET`
-- **Parameters:**
-    - `Path Variable`: companyId (Long)
-- **Description:** Get users associated with a specific company.
-- **Response:**
-    - Success: `200 OK` - Returns a set of UserEntity objects.
-    - Error: `400 Bad Request` - Returns an error message.
+- **GET /api/companies/{companyId}/users**
+    - Get users associated with a specific company.
+    - **Method:** `GET`
+    - **Parameters:**
+        - `Path Variable`: companyId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns a set of UserEntity objects.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/`
-- **Method:** `PUT`
-- **Parameters:**
-    - `Request Body`: CompanyEntity (JSON)
-    - `Query`: companyId (Long)
-- **Description:** Update details of an existing company.
-- **Response:**
-    - Success: `200 OK` - Returns updated company details.
-    - Error: `400 Bad Request` - Returns an error message.
+- **PUT /api/companies/**
+    - Update details of an existing company.
+    - **Method:** `PUT`
+    - **Parameters:**
+        - `Request Body`: CompanyEntity (JSON)
+        - `Query`: companyId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns updated company details.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/{companyId}/{userId}`
-- **Method:** `DELETE`
-- **Parameters:**
-    - `Path Variables`: companyId (Long), userId (Long)
-- **Description:** Delete a company.
-- **Response:**
-    - Success: `200 OK` - Returns a success message upon deletion.
-    - Error: `400 Bad Request` - Returns an error message.
+- **DELETE /api/companies/{companyId}/{userId}**
+    - Delete a company.
+    - **Method:** `DELETE`
+    - **Parameters:**
+        - `Path Variables`: companyId (Long), userId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns a success message upon deletion.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/add/{userId}`
-- **Method:** `PUT`
-- **Parameters:**
-    - `Path Variable`: userId (Long)
-    - `Query`: companyId (Long)
-- **Description:** Add a user to a company.
-- **Response:**
-    - Success: `200 OK` - Returns updated company details.
-    - Error: `400 Bad Request` - Returns an error message.
+- **PUT /api/companies/add/{userId}**
+    - Add a user to a company.
+    - **Method:** `PUT`
+    - **Parameters:**
+        - `Path Variable`: userId (Long)
+        - `Query`: companyId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns updated company details.
+        - Error: `400 Bad Request` - Returns an error message.
 
-- **URL:** `/`
-- **Method:** `GET`
-- **Parameters:**
-    - `Query`: companyId (Long)
-- **Description:** Get details of a specific company.
-- **Response:**
-    - Success: `200 OK` - Returns company details.
-    - Error: `400 Bad Request` - Returns an error message.
+- **GET /api/companies/**
+    - Get details of a specific company.
+    - **Method:** `GET`
+    - **Parameters:**
+        - `Query`: companyId (Long)
+    - **Response:**
+        - Success: `200 OK` - Returns company details.
+        - Error: `400 Bad Request` - Returns an error message.
 
 # Review Management
 
@@ -95,8 +95,9 @@
 
 - **POST /api/reviews/new/{companyId}**
     - Create a new review for a company.
-    - Request Body: ReviewDTO
-    - Parameters:
+    - **Method:** `POST`
+    - **Request Body:** ReviewDTO
+    - **Parameters:**
         - companyId: Long (Path)
         - userId: Long (Query)
     - **Response:**
@@ -105,13 +106,15 @@
 
 - **GET /api/reviews/all**
     - Get all reviews.
+    - **Method:** `GET`
     - **Response:**
         - Success: `200 OK` with the list of reviews
         - Error: `400 Bad Request` with an error message
 
 - **DELETE /api/reviews/{reviewId}/{companyId}**
     - Delete a review by its ID for a specific company.
-    - Parameters:
+    - **Method:** `DELETE`
+    - **Parameters:**
         - reviewId: Long (Path)
         - companyId: Long (Path)
     - **Response:**
@@ -120,7 +123,8 @@
 
 - **GET /api/reviews/{reviewId}**
     - Get a review by its ID.
-    - Parameters:
+    - **Method:** `GET`
+    - **Parameters:**
         - reviewId: Long (Path)
     - **Response:**
         - Success: `200 OK` with the review
@@ -132,20 +136,23 @@
 
 - **POST /api/categories/new**
     - Create a new category.
-    - Request Body: CategoryEntity
+    - **Method:** `POST`
+    - **Request Body:** CategoryEntity
     - **Response:**
         - Success: `200 OK` with the created category
         - Error: `400 Bad Request` with an error message
 
 - **GET /api/categories/all**
     - Get all categories.
+    - **Method:** `GET`
     - **Response:**
         - Success: `200 OK` with the list of categories
         - Error: `400 Bad Request` with an error message
 
 - **GET /api/categories/{categoryId}**
     - Get a category by its ID.
-    - Parameters:
+    - **Method:** `GET`
+    - **Parameters:**
         - categoryId: Long (Path)
     - **Response:**
         - Success: `200 OK` with the category
@@ -153,7 +160,8 @@
 
 - **DELETE /api/categories/{categoryId}**
     - Delete a category by its ID.
-    - Parameters:
+    - **Method:** `DELETE`
+    - **Parameters:**
         - categoryId: Long (Path)
     - **Response:**
         - Success: `200 OK` with a success message
@@ -165,20 +173,23 @@
 
 - **POST /api/subcategories/new**
     - Create a new subcategory.
-    - Request Body: SubcategoryEntity
+    - **Method:** `POST`
+    - **Request Body:** SubcategoryEntity
     - **Response:**
         - Success: `200 OK` with the created subcategory
         - Error: `400 Bad Request` with an error message
 
 - **GET /api/subcategories/all**
     - Get all subcategories.
+    - **Method:** `GET`
     - **Response:**
         - Success: `200 OK` with the list of subcategories
         - Error: `400 Bad Request` with an error message
 
 - **GET /api/subcategories/{subcategoryId}**
     - Get a subcategory by its ID.
-    - Parameters:
+    - **Method:** `GET`
+    - **Parameters:**
         - subcategoryId: Long (Path)
     - **Response:**
         - Success: `200 OK` with the subcategory
@@ -186,7 +197,8 @@
 
 - **DELETE /api/subcategories/{subcategoryId}**
     - Delete a subcategory by its ID.
-    - Parameters:
+    - **Method:** `DELETE`
+    - **Parameters:**
         - subcategoryId: Long (Path)
     - **Response:**
         - Success: `200 OK` with a success message
